@@ -1,0 +1,51 @@
+# include specific parameters like username
+%include ~/.hgspecific
+
+[ui]
+editor = emacsclient -t
+ignore = ~/.hgignore
+merge = merge
+
+[extensions]
+color =
+extdiff =
+graphlog =
+rebase =
+pager =
+guestrepo = ~/tools/mercurial/guestrepo/guestrepo/
+histedit =
+strip =
+record =
+crecord = ~/tools/mercurial/crecord
+evolve = ~/tools/mercurial/mutable-history/hgext/evolve.py
+confman = ~/tools/mercurial/confman/hgext/confman
+
+
+[pager]
+pager = LESS='FRX' less
+
+[extdiff]
+cmd.meld =
+# if cwdiff is in your path, otherwise set to wherever you've installed cwdiff
+cmd.wdiff = cwdiff
+#add --no-color below, if you dislike colors!
+opts.wdiff = --diff --ab
+
+[alias]
+diffc = diff --color=always
+d = diff
+amend = commit --amend
+stvi = status -nam
+sst = !hg status $($HG root) $HG_ARGS
+d = !hg diff --color always | sed -e "s#\(TODO\|XXX\|FIXME\)#\\x1b[1m\1\\x1b[21m#g" |less -R
+okdiff = !hg diff | grep --color=auto "\(TODO\|FIXME\|XXX\|delme\)" -C 1
+uppublic = up "max(public())"
+
+[hgview]
+fontsize = 14
+font = Inconsolata
+diffbgcolor = #002b36
+difffgcolor = #839496
+diffsectioncolor = #d33682
+diffminuscolor = #dc322f
+diffpluscolor = #859900

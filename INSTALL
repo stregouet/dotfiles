@@ -1,0 +1,9 @@
+
+ln -sf ~/.dotfiles/i3/config ~/.i3/config
+ln -sf ~/.dotfiles/zsh/bepo ~/.zshrc
+ln -sf ~/.dotfiles/hgrc ~/.hgrc
+ln -sf ~/.dotfiles/emacs/init.el ~/.emacs
+ln -sf ~/.dotfiles/vimrc ~/.vimrc
+ln -sf ~/.dotfiles/jshintrc ~/.jshintrc
+#echo "Keymap = $HOME/.dotfiles/_moc/keymap" > $HOME/.moc/config
+

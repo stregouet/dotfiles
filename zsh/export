@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export PATH="$HOME/usr/bin:$HOME/.npm-packages/bin:$PATH"
+export PYTHONSTARTUP="$HOME/.dotfiles/pythonrc"
+export EDITOR='emacsclient -n'

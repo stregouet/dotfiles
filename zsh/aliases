@@ -1,0 +1,22 @@
+#!/bin/sh
+	
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|time"'
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+alias cal="ncal -C"
+alias ec="emacsclient -n"
+alias ect="emacsclient -t"
+alias ecc="emacsclient -nc"
+alias mu4e="emacsclient -t --eval '(mu4e-headers-search (mu4e-ask-bookmark \"Bookmark: \"))'"
+alias emacsd="emacs --daemon"
+alias emacskill="emacsclient --eval '(kill-emacs)'"
+alias desktop-i3="i3-msg -t  get_workspaces | sed -r 's/.*\"name\":\"([0-9]*)\",\"visible\":true.*/\1/'"
+alias hgv="hgview -I curses"
+alias pygrep="grep --color=auto --include='*.py' -i -r -n"
+alias jsgrep="grep --color=auto --include='*.js' -i -r -n"
+alias view="view -u ~/.vimrc.light"
+alias mailupdate="offlineimap && mu index --maildir=.maildir"
+alias pylint='PYTHONPATH=~ pylint'
+alias xrandr-hdmi='xrandr --output HDMI1 --auto --left-of LVDS1 --output LVDS1 --auto'

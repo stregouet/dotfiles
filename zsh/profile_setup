@@ -1,0 +1,100 @@
+# -*- Mode: sh -*-
+
+
+# chpwd_profiles(): Directory Profiles, Quickstart:
+#
+# In .zshrc.local:
+#
+#   zstyle ':chpwd:profiles:/usr/src/grml(|/|/*)'   profile grml
+#   zstyle ':chpwd:profiles:/usr/src/debian(|/|/*)' profile debian
+#   chpwd_profiles
+#
+# For details see the `grmlzshrc.5' manual page.
+function chpwd_profiles() {
+    local profile context
+    local -i reexecute
+    
+    context=":chpwd:profiles:$PWD"
+    # see man zshmodules
+    zstyle -s "$context" profile profile || profile='default'
+    zstyle -T "$context" re-execute && reexecute=1 || reexecute=0
+
+    # test if CWPWD_PROFILE variable does not exist
+    if (( ${+parameters[CHPWD_PROFILE]} == 0 )); then
+        typeset -g CHPWD_PROFILE
+        local CHPWD_PROFILES_INIT=1
+        (( ${+functions[chpwd_profiles_init]} )) && chpwd_profiles_init
+    elif [[ $profile != $CHPWD_PROFILE ]]; then
+        # test if function chpwd_leave_profile_$CHPWD_PROFILE exist and execute
+        (( ${+functions[chpwd_leave_profile_$CHPWD_PROFILE]} )) \
+            && chpwd_leave_profile_${CHPWD_PROFILE}
+    fi
+    if (( reexecute )) || [[ $profile != $CHPWD_PROFILE ]]; then
+        (( ${+functions[chpwd_profile_$profile]} )) && chpwd_profile_${profile}
+    fi
+
+    CHPWD_PROFILE="${profile}"
+    return 0
+}
+
+
+typeset -gaU chpwd_functions
+chpwd_functions+=chpwd_profiles
+
+
+# define profiles based on directories:
+zstyle ":chpwd:profiles:$HOME/tmp(|/|/*)"       profile test
+zstyle ":chpwd:profiles:$HOME/src/kanban-[a-z]*(|/|/*)"       profile kanban
+zstyle ":chpwd:profiles:$HOME/src/pdfbankparser(|/|/*)"       profile pdfbankparser
+
+# configuration for profile 'test':
+function chpwd_profile_test() {
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    print "chpwd(): Switching to profile: $profile"
+    export PS1="[ $profile ] $PS1"
+}
+function chpwd_leave_profile_test() {
+    print "chpwd(): leaving profile: $CHPWD_PROFILE"
+    export PS1=${PS1/\[ $CHPWD_PROFILE \] /}
+}
+
+
+# configuration for profile 'test':
+function chpwd_profile_pdfbankparser() {
+    local pythonpaths pythonpath
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    print "chpwd(): Switching to profile: $profile"
+    export PYTHONPATH=$PWD/..:$PYTHONPATH
+    export PS1="[ $profile ] $PS1"
+    pythonpaths=(${(s/:/)PYTHONPATH})
+    pythonpath=()
+    for p in $pythonpaths; do
+	if [[ $p =~ $profile ]]; then
+	    pythonpath=$pythonpath
+	else
+	    pythonpath+=" $p" 
+	fi
+    done
+    echo "pythonpath ${(j/:/)pythonpath}"
+}
+function chpwd_leave_profile_pdfbankparser() {
+    
+    print "chpwd(): leaving profile: $CHPWD_PROFILE"
+    export PS1=${PS1/\[ $CHPWD_PROFILE \] /}
+
+    
+}
+
+
+
+# profile kanban
+function chpwd_profile_kanban () {
+    local path_parts home_base loc_kname
+    home_base=${PWD/$HOME/}
+    path_parts=(${(s:/:)home_base})
+    loc_kname=${path_parts[2]/kanban-/}
+    [[ ${loc_kname} == ${KNAME} ]] && return 1
+    KNAME=$loc_kname
+    print "in profile KANBAN $KNAME "
+}
+
