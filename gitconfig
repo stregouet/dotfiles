@@ -1,0 +1,20 @@
+# -*- mode: conf -*-
+
+[include]
+	path = ~/.gitspecific
+[color]
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+[pager]
+	status = true
+[core]
+        editor = emacsclient -t
+[alias]
+	st = status
+    	ci = commit
+	l = log
+	co = checkout
+	wdiff = diff --color-words
+	logtree = log --graph --oneline --decorate --all
