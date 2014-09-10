@@ -24,6 +24,8 @@
 (setq-default fill-column 80)
 ;; disable menu bar
 (menu-bar-mode -1)
+;; disable vcs mode
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
 
 ;; .md is a markdown file
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
