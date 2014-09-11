@@ -43,58 +43,18 @@ chpwd_functions+=chpwd_profiles
 
 
 # define profiles based on directories:
-zstyle ":chpwd:profiles:$HOME/tmp(|/|/*)"       profile test
-zstyle ":chpwd:profiles:$HOME/src/kanban-[a-z]*(|/|/*)"       profile kanban
-zstyle ":chpwd:profiles:$HOME/src/pdfbankparser(|/|/*)"       profile pdfbankparser
-
-# configuration for profile 'test':
-function chpwd_profile_test() {
-    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-    print "chpwd(): Switching to profile: $profile"
-    export PS1="[ $profile ] $PS1"
-}
-function chpwd_leave_profile_test() {
-    print "chpwd(): leaving profile: $CHPWD_PROFILE"
-    export PS1=${PS1/\[ $CHPWD_PROFILE \] /}
-}
 
 
-# configuration for profile 'test':
-function chpwd_profile_pdfbankparser() {
-    local pythonpaths pythonpath
-    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-    print "chpwd(): Switching to profile: $profile"
-    export PYTHONPATH=$PWD/..:$PYTHONPATH
-    export PS1="[ $profile ] $PS1"
-    pythonpaths=(${(s/:/)PYTHONPATH})
-    pythonpath=()
-    for p in $pythonpaths; do
-	if [[ $p =~ $profile ]]; then
-	    pythonpath=$pythonpath
-	else
-	    pythonpath+=" $p" 
-	fi
-    done
-    echo "pythonpath ${(j/:/)pythonpath}"
-}
-function chpwd_leave_profile_pdfbankparser() {
-    
-    print "chpwd(): leaving profile: $CHPWD_PROFILE"
-    export PS1=${PS1/\[ $CHPWD_PROFILE \] /}
+## exemple for profile 'test':
 
-    
-}
-
-
-
-# profile kanban
-function chpwd_profile_kanban () {
-    local path_parts home_base loc_kname
-    home_base=${PWD/$HOME/}
-    path_parts=(${(s:/:)home_base})
-    loc_kname=${path_parts[2]/kanban-/}
-    [[ ${loc_kname} == ${KNAME} ]] && return 1
-    KNAME=$loc_kname
-    print "in profile KANBAN $KNAME "
-}
+# zstyle ":chpwd:profiles:$HOME/tmp(|/|/*)"       profile test
+# function chpwd_profile_test() {
+    # [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    # print "chpwd(): Switching to profile: $profile"
+    # export PS1="[ $profile ] $PS1"
+# }
+# function chpwd_leave_profile_test() {
+    # print "chpwd(): leaving profile: $CHPWD_PROFILE"
+    # export PS1=${PS1/\[ $CHPWD_PROFILE \] /}
+# }
 
