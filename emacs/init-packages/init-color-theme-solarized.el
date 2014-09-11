@@ -11,9 +11,9 @@
       (color-theme-solarized-dark))))
 
 ;; setup color
-(defun setup-window-system-frame-colours (&rest frame)
+(defun setup-window-system-frame-colours (&optional frame)
   (let ((color-theme-is-global nil)
-	(f (if (car frame) (car frame) (selected-frame))))
+	(f (if frame frame (selected-frame))))
     (when (eq (framep f) 'x)
       (select-frame f)
       (message "create frame in x mode")
@@ -29,8 +29,8 @@
 		 (when face-back
 		   (set-face-background face-name face-back f))
 		 (when face-fore
-		   (set-face-foreground face-name face-fore f)))))
-    (setup-company-color)))
+		   (set-face-foreground face-name face-fore f))))
+      (setup-company-color))))
 
 ;; cette partie ne semble pas indispensable
 ;; (require 'server)
