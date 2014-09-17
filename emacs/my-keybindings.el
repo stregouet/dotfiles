@@ -108,6 +108,16 @@
 (global-set-key (kbd "C-z") nil)
 
 
+(defun isearch-yank-region ()
+  "yank the active region in minibuffer for search"
+  (interactive)
+  (when (region-active-p)
+    (isearch-yank-string
+     (buffer-substring-no-properties (region-beginning) (region-end)))
+    (deactivate-mark)))
+(define-key isearch-mode-map (kbd "C-o") 'isearch-yank-region)
+
+
 ;; ergo mapping
 (defun my-mapping-bepo ()
   "define global key mapping for bépo layout"
