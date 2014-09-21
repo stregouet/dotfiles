@@ -53,11 +53,11 @@ function toggle-keyboardlayout () {
 	if [[ -x $HOME/tools/xcape/xcape ]]; then
 	    _space2ctrl
 	fi
-	# normally underscore is on spacebar
-	xmodmap -e "keycode 55  = period colon underscore underscore underscore nobreakspace"
 	# convenient binding for bepo (for easier access to / -   )
-	xmodmap -e "keycode 42  = comma semicolon slash slash slash dead_horn"
-	xmodmap -e "keycode 25  = eacute Eacute minus minus minus dead_doubleacute"
+	# caps lock is Compose key
+    xmodmap -e "remove Lock = Caps_Lock"
+    xmodmap -e "keycode 66 = Multi_key"
+    xmodmap -e "remove Lock = Multi_key"
 	# change keymapping in emacs (redirect to null in case emacs server is not running)
 	emacsclient -e "(my-mapping-bepo)" 2> /dev/null
 	ln -sf ~/.dotfiles/zsh/bepo ~/.zshrc

@@ -1,0 +1,8 @@
+<Multi_key> <t>  : "/" U002F
+<Multi_key> <s>  : "-" U002D
+<Multi_key> <r>  : "_" U005F
+<Multi_key> <n>  : "~" U007E
+<Multi_key> <m>  : " " U00A0
+<Multi_key> <v>  : "\\" U005C
+<Multi_key> <d>  : "[" U005B
+<Multi_key> <l>  : "{" U007B

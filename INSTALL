@@ -6,6 +6,7 @@ ln -sf ~/.dotfiles/emacs/init.el ~/.emacs
 ln -sf ~/.dotfiles/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/jshintrc ~/.jshintrc
 ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/xcompose ~/.XCompose
 
 #echo "Keymap = $HOME/.dotfiles/_moc/keymap" > $HOME/.moc/config
 
