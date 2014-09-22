@@ -47,4 +47,10 @@
 	  lisp-mode-hook
 	  emacs-lisp-mode-hook))
 
+(defun toggle-show-trailing-whitespace ()
+  "toggle value of variable `show-trailing-whitespace'"
+  (interactive)
+  (setq show-trailing-whitespace
+	(not show-trailing-whitespace)))
+
 (provide 'my-settings)
