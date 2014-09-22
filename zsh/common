@@ -55,7 +55,12 @@ $fg_white_bg_grey %3~ $norma $fg_wh
 %B>%b "
 
 ## autojump
-source /usr/share/autojump/autojump.zsh
+export XDG_DATA_HOME
+if [[ -s $HOME/.autojump/etc/profile.d/autojump.zsh ]]; then
+   source $HOME/.autojump/etc/profile.d/autojump.zsh
+else
+    source /usr/share/autojump/autojump.zsh
+fi
 
 ## keybinding
 # required to map C-s
