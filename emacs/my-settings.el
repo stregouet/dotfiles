@@ -4,7 +4,7 @@
 ;; show matching parenthese
 (show-paren-mode 1)
 ;; bar cursor instead of rectangle
-(bar-cursor-mode 1)
+(setq-default cursor-type 'bar)
 ;; no ~ file
 (setq make-backup-files nil)
 ;; enable narrow-to-region
