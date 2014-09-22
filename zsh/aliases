@@ -20,3 +20,4 @@ alias view="view -u ~/.vimrc.light"
 alias mailupdate="offlineimap && mu index --maildir=.maildir"
 alias pylint='PYTHONPATH=~ pylint'
 alias xrandr-hdmi='xrandr --output HDMI1 --auto --left-of LVDS1 --output LVDS1 --auto'
+alias sag='sack -ag'
