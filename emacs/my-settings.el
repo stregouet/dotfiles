@@ -22,10 +22,14 @@
 (tool-bar-mode -1)
 ;; a line is 80 char
 (setq-default fill-column 80)
+;; always insert whitespaces
+(setq-default indent-tabs-mode nil)
 ;; disable menu bar
 (menu-bar-mode -1)
 ;; disable vcs mode
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
+;; for whitespace minor mode
+(setq whitespace-style '(face trailing tab-mark))
 
 ;; .md is a markdown file
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -39,6 +43,7 @@
 
 ;; add line number in specific mode
 (cl-map 'list (lambda (mode-hook)
+                (add-hook mode-hook 'whitespace-mode)
 		(add-hook mode-hook 'linum-mode))
 	'(js-mode-hook
 	  coffee-mode-hook
