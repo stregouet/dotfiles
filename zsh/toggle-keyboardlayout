@@ -2,7 +2,7 @@
 
 function _space2ctrl () {
     spare_modifier="Hyper_L"
-    xmodmap -e "keycode 65 = $spare_modifier ellipsis ellipsis ellipsis ellipsis" # insert … with Alt Gr
+    xmodmap -e "keycode 65 = $spare_modifier underscore underscore underscore underscore" # insert … with Alt Gr
     
     xmodmap -e "remove mod4 = $spare_modifier" # hyper_l is mod4 by default
     xmodmap -e "add Control = $spare_modifier"
@@ -46,35 +46,36 @@ function keybinding_azerty () {
 function toggle-keyboardlayout () {
     arg="$_"
     if [[ $arg == "bepo" ]]; then
-	echo "switch to bépo"
-	keybinding_bepo
-	setxkbmap fr bepo
-	# make space bar a ctrl key
-	if [[ -x $HOME/tools/xcape/xcape ]]; then
-	    _space2ctrl
-	fi
-	# convenient binding for bepo (for easier access to / -   )
-	# caps lock is Compose key
-    xmodmap -e "remove Lock = Caps_Lock"
-    xmodmap -e "keycode 66 = Multi_key"
-    xmodmap -e "remove Lock = Multi_key"
-	# change keymapping in emacs (redirect to null in case emacs server is not running)
-	emacsclient -e "(my-mapping-bepo)" 2> /dev/null
-	ln -sf ~/.dotfiles/zsh/bepo ~/.zshrc
+        echo "switch to bépo"
+        keybinding_bepo
+        setxkbmap fr bepo
+        # make space bar a ctrl key
+        if [[ -x $HOME/tools/xcape/xcape ]]; then
+            _space2ctrl
+        fi
+        # convenient binding for bepo (for easier access to / -   )
+        xmodmap -e "keycode 55  = period colon underscore underscore underscore nobreakspace"
+        # caps lock is Compose key
+        xmodmap -e "remove Lock = Caps_Lock"
+        xmodmap -e "keycode 66 = Multi_key"
+        xmodmap -e "remove Lock = Multi_key"
+        # change keymapping in emacs (redirect to null in case emacs server is not running)
+        emacsclient -e "(my-mapping-bepo)" 2> /dev/null
+        ln -sf ~/.dotfiles/zsh/bepo ~/.zshrc
     else
-	if [[ $arg == "azerty" ]]; then
-	    echo "switch to azerty"
-	    keybinding_azerty
-	    # kill xcape
-	    pkill -u $USER xcape
-	    # set keyboard layout to azerty
-	    setxkbmap fr oss
-	    # change keymapping in emacs (redirect to null in case emacs server is not running)
-	    emacsclient -e "(my-mapping-azerty)" 2> /dev/null
-	    ln -sf ~/.dotfiles/zsh/azerty ~/.zshrc
-	else
-	    echo "unknown keyboard layout"
-	fi
+        if [[ $arg == "azerty" ]]; then
+            echo "switch to azerty"
+            keybinding_azerty
+            # kill xcape
+            pkill -u $USER xcape
+            # set keyboard layout to azerty
+            setxkbmap fr oss
+            # change keymapping in emacs (redirect to null in case emacs server is not running)
+            emacsclient -e "(my-mapping-azerty)" 2> /dev/null
+            ln -sf ~/.dotfiles/zsh/azerty ~/.zshrc
+        else
+            echo "unknown keyboard layout"
+        fi
     fi
 }
 
