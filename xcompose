@@ -6,3 +6,47 @@
 <Multi_key> <v>  : "\\" U005C
 <Multi_key> <d>  : "[" U005B
 <Multi_key> <l>  : "{" U007B
+
+# normal behavior
+<dead_circumflex> <space>        	: "^"   asciicircum # CIRCUMFLEX ACCENT
+<dead_circumflex> <dead_circumflex> 	: "^"   asciicircum # CIRCUMFLEX ACCENT
+<dead_circumflex> <A>            	: "Â"   Acircumflex # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+<dead_circumflex> <E>            	: "Ê"   Ecircumflex # LATIN CAPITAL LETTER E WITH CIRCUMFLEX
+<dead_circumflex> <I>            	: "Î"   Icircumflex # LATIN CAPITAL LETTER I WITH CIRCUMFLEX
+<dead_circumflex> <O>            	: "Ô"   Ocircumflex # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
+<dead_circumflex> <U>            	: "Û"   Ucircumflex # LATIN CAPITAL LETTER U WITH CIRCUMFLEX
+<dead_circumflex> <a>            	: "â"   acircumflex # LATIN SMALL LETTER A WITH CIRCUMFLEX
+<dead_circumflex> <e>            	: "ê"   ecircumflex # LATIN SMALL LETTER E WITH CIRCUMFLEX
+<dead_circumflex> <i>            	: "î"   icircumflex # LATIN SMALL LETTER I WITH CIRCUMFLEX
+<dead_circumflex> <o>            	: "ô"   ocircumflex # LATIN SMALL LETTER O WITH CIRCUMFLEX
+<dead_circumflex> <u>            	: "û"   ucircumflex # LATIN SMALL LETTER U WITH CIRCUMFLEX
+
+<dead_grave> <space>             	: "`"   grave # GRAVE ACCENT
+<dead_grave> <dead_grave>        	: "`"   grave # GRAVE ACCENT
+<dead_grave> <A>                 	: "À"   Agrave # LATIN CAPITAL LETTER A WITH GRAVE
+<dead_grave> <E>                 	: "È"   Egrave # LATIN CAPITAL LETTER E WITH GRAVE
+<dead_grave> <I>                 	: "Ì"   Igrave # LATIN CAPITAL LETTER I WITH GRAVE
+<dead_grave> <O>                 	: "Ò"   Ograve # LATIN CAPITAL LETTER O WITH GRAVE
+<dead_grave> <U>                 	: "Ù"   Ugrave # LATIN CAPITAL LETTER U WITH GRAVE
+<dead_grave> <a>                 	: "à"   agrave # LATIN SMALL LETTER A WITH GRAVE
+<dead_grave> <e>                 	: "è"   egrave # LATIN SMALL LETTER E WITH GRAVE
+<dead_grave> <i>                 	: "ì"   igrave # LATIN SMALL LETTER I WITH GRAVE
+<dead_grave> <o>                 	: "ò"   ograve # LATIN SMALL LETTER O WITH GRAVE
+<dead_grave> <u>                 	: "ù"   ugrave # LATIN SMALL LETTER U WITH GRAVE
+
+<dead_diaeresis> <dead_diaeresis> 	: "¨"   diaeresis # DIAERESIS
+<dead_diaeresis> <space>         	: "\""   quotedbl # REVERSE SOLIDUS
+<dead_diaeresis> <A>             	: "Ä"   Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
+<dead_diaeresis> <E>             	: "Ë"   Ediaeresis # LATIN CAPITAL LETTER E WITH DIAERESIS
+<dead_diaeresis> <I>             	: "Ï"   Idiaeresis # LATIN CAPITAL LETTER I WITH DIAERESIS
+<dead_diaeresis> <O>             	: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<dead_diaeresis> <U>             	: "Ü"   Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<dead_diaeresis> <a>             	: "ä"   adiaeresis # LATIN SMALL LETTER A WITH DIAERESIS
+<dead_diaeresis> <e>             	: "ë"   ediaeresis # LATIN SMALL LETTER E WITH DIAERESIS
+<dead_diaeresis> <i>             	: "ï"   idiaeresis # LATIN SMALL LETTER I WITH DIAERESIS
+<dead_diaeresis> <o>             	: "ö"   odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
+<dead_diaeresis> <u>             	: "ü"   udiaeresis # LATIN SMALL LETTER U WITH DIAERESIS
+<dead_diaeresis> <y>             	: "ÿ"   ydiaeresis # LATIN SMALL LETTER Y WITH DIAERESIS
+<dead_diaeresis> <Y>             	: "Ÿ"   U0178 # LATIN CAPITAL LETTER Y WITH DIAERESIS
+
+
