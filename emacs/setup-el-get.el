@@ -23,6 +23,7 @@
 
 (setq el-get-sources
       '((:name slime :type elpa)
+        (:name anaconda-mode :type elpa)
 	;; overwrite tern recipes in el-get (for npm command)
 	(:name tern :build '(("npm" "install" "--production")))
 	;; For a better naming of the buffers (that is, not filename.txt<2>!).
@@ -31,7 +32,6 @@
 
 (setq my-packages '(color-theme-solarized
 		    company
-		    anaconda-mode
 		    company-anaconda
 		    company-tern
 		    expand-region
