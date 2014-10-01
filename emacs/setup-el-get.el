@@ -34,6 +34,7 @@
 		    company
 		    company-anaconda
 		    company-tern
+                    stylus-mode
 		    expand-region
 		    multiple-cursors
 		    emmet-mode
