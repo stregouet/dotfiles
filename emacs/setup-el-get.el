@@ -31,6 +31,7 @@
 	(:name ibuffer :type builtin)))
 
 (setq my-packages '(color-theme-solarized
+                    rust-mode
 		    company
 		    company-anaconda
 		    company-tern
