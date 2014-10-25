@@ -3,3 +3,4 @@
 export PATH="$HOME/bin:$HOME/usr/bin:$HOME/.npm-packages/bin:$PATH"
 export PYTHONSTARTUP="$HOME/.dotfiles/pythonrc"
 export EDITOR='emacsclient -n'
+export LD_LIBRARY_PATH="$HOME/usr/lib"
