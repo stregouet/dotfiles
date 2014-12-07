@@ -9,8 +9,8 @@
   (newline)
   (previous-line 1)
   (indent-for-tab-command))
-(global-set-key [(control return)] 'newline-down)
-(global-set-key [(shift return)] 'newline-up)
+(global-set-key (kbd "C-c C-o") 'newline-down)
+(global-set-key (kbd "C-c o") 'newline-up)
 
 
 ;; backward kill line
@@ -39,9 +39,6 @@
 (defun search-symbol ()
   (interactive)
   (highlight-regexp (format "\\b%s\\b" (thing-at-point 'symbol))))
-(global-set-key (kbd "C-*") 'search-symbol)
-(global-set-key (kbd "C-M-*") 'unhighlight-regexp)
-
 
 
 ;; narrow current region in a new window
@@ -88,7 +85,7 @@
   (if (use-region-p)
       (comment-or-uncomment-region (region-beginning) (region-end))
     (progn
-      (comment-or-uncomment-region 
+      (comment-or-uncomment-region
        (save-excursion (beginning-of-line 1) (point))
        (save-excursion (end-of-line 1) (point)))
       (next-line))))
@@ -99,7 +96,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; set mark
-(global-set-key (kbd "C-,") 'set-mark-command)
+(global-set-key (kbd "C-c C-e") 'set-mark-command)
 
 ;; use ibuffer instead of basic buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
