@@ -1,5 +1,5 @@
 #!/bin/sh
-	
+
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|time"'
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -21,3 +21,4 @@ alias mailupdate="offlineimap && mu index --maildir=.maildir"
 alias pylint='PYTHONPATH=~ pylint'
 alias xrandr-hdmi='xrandr --output HDMI1 --auto --left-of LVDS1 --output LVDS1 --auto'
 alias sag='sack -ag'
+alias muup='offlineimap && ~/.emacs.d/el-get/mu4e/mu/mu index --maildir=~/.maildir'
