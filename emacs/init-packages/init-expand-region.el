@@ -1,2 +1,2 @@
-(global-set-key (kbd "C-c =") 'er/expand-region)
+(define-key my-keymap "s" 'er/expand-region)
 

@@ -1,3 +1,10 @@
+;; define my own keymap on C-e
+(defvar my-keymap (make-sparse-keymap))
+(define-prefix-command 'my-keymap)
+(global-set-key "\C-e" 'my-keymap)
+(define-key my-keymap "\C-e" 'end-of-line)
+
+
 ;; mimic vim to insert line below and above
 (defun newline-down ()
   (interactive)
@@ -9,8 +16,9 @@
   (newline)
   (previous-line 1)
   (indent-for-tab-command))
-(global-set-key (kbd "C-c C-o") 'newline-down)
-(global-set-key (kbd "C-c o") 'newline-up)
+(define-key my-keymap "\C-o" 'newline-down)
+(define-key my-keymap "o" 'newline-up)
+
 
 
 ;; backward kill line
@@ -96,7 +104,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; set mark
-(global-set-key (kbd "C-c C-e") 'set-mark-command)
+(define-key my-keymap "\C-t" 'set-mark-command)
 
 ;; use ibuffer instead of basic buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
