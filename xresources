@@ -1,4 +1,4 @@
-URxvt.perl-ext:		default,selection-autotransform,searchable-scrollback<M-w>
+! URxvt.perl-ext:		default,selection-autotransform,searchable-scrollback<M-w>
 
 ! URxvt.keysym.M-w:			perl:searchable-scrollback:start
 
