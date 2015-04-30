@@ -2,7 +2,7 @@
 setopt histignorealldups sharehistory
 
 # add custom completion scripts
-fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/completion ~/usr/share/zsh/site-functions $fpath)
 
 bindkey -e
 
