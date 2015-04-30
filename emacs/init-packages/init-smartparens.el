@@ -1,6 +1,7 @@
 (require 'smartparens-config)
 
 (defvar sp--bracket-modes '(js-mode
+                            rust-mode
 			    sh-mode)
   "list of modes which use bracket to define sexp")
 (sp-with-modes sp--bracket-modes

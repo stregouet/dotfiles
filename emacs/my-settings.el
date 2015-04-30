@@ -47,6 +47,7 @@
 		(add-hook mode-hook 'linum-mode))
 	'(js-mode-hook
 	  coffee-mode-hook
+      rust-mode-hook
 	  sh-mode-hook
 	  python-mode-hook
 	  lisp-mode-hook
