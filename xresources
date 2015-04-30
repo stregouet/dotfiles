@@ -1,13 +1,6 @@
-! URxvt.perl-ext:		default,selection-autotransform,searchable-scrollback<M-w>
-
-! URxvt.keysym.M-w:			perl:searchable-scrollback:start
-
-URxvt.selection.pattern-0: ( at .*? line \\d+[,.])
-URxvt.selection-autotransform.0: s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
-URxvt.selection.pattern-1:		\\s+File (".*?\\.py", line \\d+)
-URxvt.selection-autotransform.1:	s/"(.*?\\.py)", line (\\d+)/emacsclient $1 +$2/
-URxvt.selection.pattern-2: (^.*?:\\d+:)
-URxvt.selection-autotransform.2: s/^(.*?):(\\d+):/vim +$2 $1/
+! disable any perl extension
+URxvt.perl-ext:
+URxvt.perl-ext-common:
 
 	
 URxvt.font:           xft:Inconsolata:size=14
