@@ -138,3 +138,4 @@ bar {
 }
 exec /usr/bin/xrdb -merge ~/.dotfiles/xresources
 exec /usr/bin/urxvtd -q -o -f
+exec /usr/bin/nm-applet
