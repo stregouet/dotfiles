@@ -1,6 +1,6 @@
 (require 'color-theme)
 (require 'color-theme-solarized)
-(load-theme 'solarized-dark 1)
+(load-theme 'solarized-light 1)
 
 (defun setup-frame-theme (&rest frame)
   (let  ((color-theme-is-global nil)
@@ -18,7 +18,7 @@
       (select-frame f)
       (message "create frame in x mode")
       (set-frame-font "Inconsolata 14")
-      (loop for face in (first (solarized-color-definitions 'dark))
+      (loop for face in (first (solarized-color-definitions 'light))
 	    ;; face is like this
 	    ;; (cursor ((t (:foreground "#002b36" :background "#839496"))))
 	    do (let* ((face-name (car face))

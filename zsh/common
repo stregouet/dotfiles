@@ -51,7 +51,7 @@ RPS1="%U%T%u"
 
 PS1="$fg_wh_bg_red%(!. root .)\
 $fg_yellow_bg_orange @%m: \
-$fg_white_bg_grey %3~ $norma $fg_wh
+$fg_white_bg_grey %3~ $norma
 %B>%b "
 
 ## autojump
