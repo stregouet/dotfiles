@@ -38,5 +38,5 @@ set noerrorbells
 
 
 set background=dark
-colorscheme solarized
+colorscheme desert
 
