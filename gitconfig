@@ -11,6 +11,7 @@
 	status = true
 [core]
         editor = emacsclient -t
+	excludesfile = ~/.gitignore
 [alias]
 	st = status
     	ci = commit
