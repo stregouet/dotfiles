@@ -79,6 +79,21 @@
   (end-of-line 1))
 (global-set-key (kbd "M-,") 'select-current-line)
 
+(defun duplicate-current-region ()
+  (interactive)
+  (let ((insert-str
+         (if (use-region-p)
+             (buffer-substring-no-properties (region-beginning) (region-end))
+           (buffer-substring-no-properties
+             (save-excursion (beginning-of-line 1) (point))
+             (save-excursion (end-of-line 1) (point))))))
+    (deactivate-mark)
+    (end-of-line 1)
+    (newline)
+    (insert insert-str)))
+(define-key my-keymap "d" 'duplicate-current-region)
+(define-key my-keymap "\C-d" 'duplicate-current-region)
+
 ;; yank current line
 (defun yank-current-line ()
   (interactive)
