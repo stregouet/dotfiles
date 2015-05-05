@@ -29,8 +29,7 @@
 		 (when face-back
 		   (set-face-background face-name face-back f))
 		 (when face-fore
-		   (set-face-foreground face-name face-fore f))))
-      (setup-company-color))))
+		   (set-face-foreground face-name face-fore f)))))))
 
 ;; cette partie ne semble pas indispensable
 ;; (require 'server)
