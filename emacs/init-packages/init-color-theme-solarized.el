@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.dotfiles/emacs/color-theme-solarized-20150505/")
+
 (require 'color-theme)
 (require 'color-theme-solarized)
 (load-theme 'solarized-light 1)
