@@ -4,6 +4,9 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
+;; use ido for help function (C-h f, C-h v... )
+(ido-ubiquitous-mode)
+
 (defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
 ;; Display ido results vertically, rather than horizontally

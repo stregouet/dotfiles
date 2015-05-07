@@ -18,6 +18,7 @@
           emmet-mode
           coffee-mode
           flx-ido
+          ido-ubiquitous
           hlinum
           web-beautify
           flycheck
