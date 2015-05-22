@@ -16,4 +16,5 @@
 (require 'my-hl-keywords)
 
 (my-load-init-packages "~/.dotfiles/emacs/init-packages")
+(load "~/.emacs.d/specific/init")
 
