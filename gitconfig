@@ -17,6 +17,7 @@
     	ci = commit
 	l = log
 	co = checkout
+	b = branch
         prev = checkout HEAD^
 	wdiff = diff --color-words
 	logtree = log --graph --oneline --decorate --all
