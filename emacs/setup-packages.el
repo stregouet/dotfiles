@@ -14,6 +14,7 @@
 (mapcar 'install-if-not-installed
         '(color-theme-solarized
           org-plus-contrib
+          systemd
           rust-mode
           stylus-mode
           expand-region
