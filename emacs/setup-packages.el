@@ -14,6 +14,7 @@
 (mapcar 'install-if-not-installed
         '(color-theme-solarized
           org-plus-contrib
+          git-commit-mode
           systemd
           rust-mode
           stylus-mode
