@@ -21,3 +21,9 @@
         prev = checkout HEAD^
 	wdiff = diff --color-words
 	logtree = log --graph --oneline --decorate --all
+
+[tig "bind"]
+        generic = <Ctrl-r> move-up
+        generic = <Ctrl-s> move-down
+        generic = <Ctrl-t> scroll-left
+        generic = <Ctrl-n> scroll-right
