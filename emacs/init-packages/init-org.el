@@ -1,11 +1,19 @@
 (require 'org)
 
-;; (defvar my-org-keymap (make-sparse-keymap))
-;; (define-prefix-command 'my-org-keymap)
-;; (define-key my-org-keymap "\C-e" 'org-end-of-line)
-;; (define-key org-mode-map "\C-e" 'my-org-keymap)
+(defun my-copy-keymap (a-keymap)
+  "`a-keymap' is a variable built with a call to `make-sparse-keymap'"
+  (loop for key-cmd in (cdr a-keymap)
+        for key = (car key-cmd)
+        for cmd = (cdr key-cmd)
+        collect `(,key . ,cmd)))
 
-(define-key org-mode-map "\C-e" 'my-keymap)
+(defvar my-org-keymap (make-sparse-keymap))
+(setf (cdr my-org-keymap) (my-copy-keymap my-keymap))
+(define-prefix-command 'my-org-keymap)
+(define-key my-org-keymap "\C-e" 'org-end-of-line)
+(define-key org-mode-map "\C-e" 'my-org-keymap)
+
+(setq org-special-ctrl-a/e t)
 
 (setq org-directory "~/Org")
 ;; If an entry is a directory, all files in that directory that are matched by
