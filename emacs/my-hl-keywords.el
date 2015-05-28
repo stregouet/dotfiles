@@ -1,14 +1,14 @@
 ;; Use to highligt some keywords in these modes.
 (setq code-tag-mode-list '(
                           python-mode
-			  js-mode
+                          js-mode
                           c++-mode
                           c-mode
                           cmake-mode
                           conf-mode
                           makefile-mode
                           lisp-mode
-			  coffee-mode
+                          coffee-mode
                           emacs-lisp-mode))
 
 (defun highlight-warning-keyword (mode)

@@ -12,16 +12,16 @@
 ;; Display ido results vertically, rather than horizontally
 (setq ido-decorations
       (quote ("\n-> "
-	      ""
-	      "\n   "
-	      "\n   ..."
-	      "["
-	      "]"
-	      " [No match]"
-	      " [Matched]"
-	      " [Not readable]"
-	      " [Too big]"
-	      " [Confirm]")))
+              ""
+              "\n   "
+              "\n   ..."
+              "["
+              "]"
+              " [No match]"
+              " [Matched]"
+              " [Not readable]"
+              " [Too big]"
+              " [Confirm]")))
 
 (global-set-key
      "\M-x"

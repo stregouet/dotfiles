@@ -19,42 +19,42 @@
 (defun next-edit-point ()
   (interactive)
   (let (result
-	(possible-points ())
-	(pos3 (save-excursion (re-search-forward "^\\s-*$" nil t)))
-	(pos1 (save-excursion (re-search-forward "><\\/" nil t)))
-	(pos2 (save-excursion (re-search-forward "\"\"" nil t))))
+(possible-points ())
+(pos3 (save-excursion (re-search-forward "^\\s-*$" nil t)))
+(pos1 (save-excursion (re-search-forward "><\\/" nil t)))
+(pos2 (save-excursion (re-search-forward "\"\"" nil t))))
     (if pos1
-	(push (- pos1 2) possible-points)
+(push (- pos1 2) possible-points)
       (push pos1 possible-points))
     (if pos2
-	(push (- pos2 1) possible-points)
+(push (- pos2 1) possible-points)
       (push pos2 possible-points))
     (if pos3
-	(if (not (= (point) pos3))
-	    (push pos3 possible-points)))
+(if (not (= (point) pos3))
+    (push pos3 possible-points)))
     (setq result (cl-reduce 'min2 possible-points))
     (if result
-	(goto-char result))))
+(goto-char result))))
 
 (defun previous-edit-point ()
   (interactive)
   (let (result
-	(possible-points ())
-	(pos3 (save-excursion (re-search-backward "^\\s-*$" nil t)))
-	(pos1 (save-excursion (re-search-backward "><\\/" nil t)))
-	(pos2 (save-excursion (re-search-backward "\"\"" nil t))))
+        (possible-points ())
+        (pos3 (save-excursion (re-search-backward "^\\s-*$" nil t)))
+        (pos1 (save-excursion (re-search-backward "><\\/" nil t)))
+        (pos2 (save-excursion (re-search-backward "\"\"" nil t))))
     (if pos1
-	(push (+ pos1 1) possible-points)
+        (push (+ pos1 1) possible-points)
       (push pos1 possible-points))
     (if pos2
-	(push (+ pos2 1) possible-points)
+        (push (+ pos2 1) possible-points)
       (push pos2 possible-points))
     (if pos3
-	(if (not (= (point) pos3))
-	    (push pos3 possible-points)))
+        (if (not (= (point) pos3))
+            (push pos3 possible-points)))
     (setq result (cl-reduce 'max2 possible-points))
     (if result
- 	(goto-char result))))
+        (goto-char result))))
 
 ;; XXX not sure eval-after-load is necessary with el-get
 (eval-after-load "emmet-mode"

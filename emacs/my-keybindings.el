@@ -52,13 +52,13 @@
 ;; narrow current region in a new window
 (defun clone-and-narrow-region ()
   (interactive)
-  (let 	((start (mark))
-	 (end (point)))
+  (let ((start (mark))
+        (end (point)))
     (deactivate-mark)
     (let ((buf (clone-indirect-buffer-other-window
-		(generate-new-buffer-name (concat (buffer-name) "[indirect]")) 1)))
+                (generate-new-buffer-name (concat (buffer-name) "[indirect]")) 1)))
       (with-current-buffer buf
-	(narrow-to-region start end)))))
+        (narrow-to-region start end)))))
 (global-set-key (kbd "C-x c") 'clone-and-narrow-region)
 
 ;; back to indent or beginning of line
@@ -68,7 +68,7 @@
   (let ((current-point (point)))
       (back-to-indentation)
       (if (= current-point (point))
-	  (beginning-of-line))))
+          (beginning-of-line))))
 (global-set-key "\C-a" 'back-to-indent-or-beginning)
 
 ;; select current line

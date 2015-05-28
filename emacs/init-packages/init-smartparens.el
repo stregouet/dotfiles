@@ -2,7 +2,7 @@
 
 (defvar sp--bracket-modes '(js-mode
                             rust-mode
-			    sh-mode)
+                            sh-mode)
   "list of modes which use bracket to define sexp")
 (sp-with-modes sp--bracket-modes
   (sp-local-pair "{" nil :post-handlers '((my-create-newline-and-enter-sexp "RET")))

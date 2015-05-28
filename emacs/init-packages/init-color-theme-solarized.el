@@ -6,7 +6,7 @@
 
 (defun setup-frame-theme (&rest frame)
   (let  ((color-theme-is-global nil)
-	 (f (if (car frame) (car frame) (selected-frame))))
+         (f (if (car frame) (car frame) (selected-frame))))
     (when (eq (framep f) 'x)
       (select-frame f)
       (set-frame-font "Inconsolata 14")
@@ -15,23 +15,23 @@
 ;; setup color
 (defun setup-window-system-frame-colours (&optional frame)
   (let ((color-theme-is-global nil)
-	(f (if frame frame (selected-frame))))
+        (f (if frame frame (selected-frame))))
     (when (eq (framep f) 'x)
       (select-frame f)
       (message "create frame in x mode")
       (set-frame-font "Inconsolata 14")
       (loop for face in (first (solarized-color-definitions 'light))
-	    ;; face is like this
-	    ;; (cursor ((t (:foreground "#002b36" :background "#839496"))))
-	    do (let* ((face-name (car face))
-		      (face-prop (cadaar (cdr face)))
-		      (face-back (getf face-prop :background))
-		      (face-fore (getf face-prop :foreground))
-		      (frame (selected-frame)))
-		 (when face-back
-		   (set-face-background face-name face-back f))
-		 (when face-fore
-		   (set-face-foreground face-name face-fore f)))))))
+            ;; face is like this
+            ;; (cursor ((t (:foreground "#002b36" :background "#839496"))))
+            do (let* ((face-name (car face))
+                      (face-prop (cadaar (cdr face)))
+                      (face-back (getf face-prop :background))
+                      (face-fore (getf face-prop :foreground))
+                      (frame (selected-frame)))
+                 (when face-back
+                   (set-face-background face-name face-back f))
+                 (when face-fore
+                   (set-face-foreground face-name face-fore f)))))))
 
 ;; cette partie ne semble pas indispensable
 ;; (require 'server)

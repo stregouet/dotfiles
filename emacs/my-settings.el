@@ -44,19 +44,19 @@
 ;; add line number in specific mode
 (cl-map 'list (lambda (mode-hook)
                 (add-hook mode-hook 'whitespace-mode)
-		(add-hook mode-hook 'linum-mode))
-	'(js-mode-hook
-	  coffee-mode-hook
-      rust-mode-hook
-	  sh-mode-hook
-	  python-mode-hook
-	  lisp-mode-hook
-	  emacs-lisp-mode-hook))
+                (add-hook mode-hook 'linum-mode))
+        '(js-mode-hook
+          coffee-mode-hook
+          rust-mode-hook
+          sh-mode-hook
+          python-mode-hook
+          lisp-mode-hook
+          emacs-lisp-mode-hook))
 
 (defun toggle-show-trailing-whitespace ()
   "toggle value of variable `show-trailing-whitespace'"
   (interactive)
   (setq show-trailing-whitespace
-	(not show-trailing-whitespace)))
+        (not show-trailing-whitespace)))
 
 (provide 'my-settings)
